@@ -3,26 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> 2°Ciclo de Palestras | Grupo de Estudos e Pesquisa MicroBioMa</title>
-  <meta name="description" content="2° Ciclo de palestras do MicroBioMa" />
+  <title>2º Ciclo de Palestras sobre Biorremediação | MicroBioMa</title>
+  <meta name="description" content="Site oficial do 2º Ciclo de Palestras sobre Biorremediação, promovido pelo Grupo de Estudos e Pesquisa em Microbiologia e Biotecnologia Microbiana na Amazônia." />
   <style>
     :root {
+      --green-950: #0d2b1d;
       --green-900: #123524;
       --green-800: #1d4d33;
       --green-700: #2f6b46;
       --green-600: #3f8a5a;
       --green-500: #5ea978;
+      --green-200: #d9ecdf;
       --green-100: #eaf6ee;
-      --green-050: #f6fbf7;
+      --green-050: #f7fbf8;
       --white: #ffffff;
       --gray-700: #3f4a43;
-      --gray-500: #66736b;
+      --gray-600: #5b675f;
+      --gray-500: #6f7a73;
       --gray-200: #dfe8e2;
-      --shadow: 0 10px 30px rgba(18, 53, 36, 0.08);
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --radius-sm: 10px;
-      --max-width: 1160px;
+      --shadow: 0 14px 40px rgba(18, 53, 36, 0.08);
+      --shadow-soft: 0 8px 24px rgba(18, 53, 36, 0.05);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max-width: 1180px;
     }
 
     * {
@@ -37,9 +42,9 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(to bottom, var(--green-050), var(--white));
+      background: linear-gradient(to bottom, #f8fcf9 0%, #f4faf6 18%, #ffffff 60%);
       color: var(--gray-700);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     img {
@@ -58,31 +63,37 @@
     }
 
     .section {
-      padding: 84px 0;
+      padding: 96px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 42px;
     }
 
     .section-title {
-      font-size: clamp(1.9rem, 3vw, 2.7rem);
-      color: var(--green-900);
+      font-size: clamp(2rem, 3vw, 2.9rem);
+      line-height: 1.12;
+      color: var(--green-950);
       margin-bottom: 14px;
-      line-height: 1.2;
     }
 
     .section-subtitle {
-      color: var(--gray-500);
-      max-width: 760px;
-      margin-bottom: 36px;
+      color: var(--gray-600);
+      font-size: 1.04rem;
     }
 
     .tag {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       background: var(--green-100);
       color: var(--green-800);
-      padding: 8px 14px;
+      padding: 10px 16px;
       border-radius: 999px;
-      font-size: 0.92rem;
+      font-size: 0.94rem;
       font-weight: 700;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .btn {
@@ -90,12 +101,16 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 14px 22px;
+      padding: 15px 24px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       font-weight: 700;
-      transition: 0.25s ease;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .btn-primary {
@@ -106,31 +121,30 @@
 
     .btn-primary:hover {
       background: var(--green-900);
-      transform: translateY(-2px);
     }
 
     .btn-secondary {
       background: var(--white);
       color: var(--green-800);
       border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-soft);
     }
 
     .btn-secondary:hover {
       border-color: var(--green-500);
-      transform: translateY(-2px);
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(18, 53, 36, 0.08);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(18, 53, 36, 0.07);
     }
 
     .nav {
-      min-height: 76px;
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -140,33 +154,53 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      color: var(--green-900);
+      gap: 14px;
+      min-width: 0;
     }
 
     .brand-badge {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      border-radius: 14px;
       background: linear-gradient(135deg, var(--green-700), var(--green-500));
+      color: var(--white);
       display: grid;
       place-items: center;
-      color: var(--white);
-      font-size: 1.2rem;
-      font-weight: 900;
+      font-weight: 800;
+      font-size: 1.15rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-title {
+      color: var(--green-950);
+      font-weight: 800;
+      font-size: 1.02rem;
+      line-height: 1.3;
+    }
+
+    .brand-subtitle {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+      margin-top: 2px;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
       align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
       color: var(--gray-700);
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 0.98rem;
     }
 
     .nav-links a:hover {
@@ -174,28 +208,30 @@
     }
 
     .hero {
-      padding: 84px 0 60px;
+      padding: 88px 0 72px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 34px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 42px;
       align-items: center;
     }
 
     .hero h1 {
-      font-size: clamp(2.3rem, 5vw, 4.3rem);
-      line-height: 1.05;
-      color: var(--green-900);
-      margin-bottom: 20px;
+      font-size: clamp(2.6rem, 5.4vw, 4.6rem);
+      line-height: 1.03;
+      letter-spacing: -0.03em;
+      color: var(--green-950);
+      margin-bottom: 22px;
+      max-width: 760px;
     }
 
     .hero p {
-      font-size: 1.08rem;
-      color: var(--gray-500);
-      max-width: 680px;
-      margin-bottom: 28px;
+      font-size: 1.12rem;
+      color: var(--gray-600);
+      max-width: 700px;
+      margin-bottom: 30px;
     }
 
     .hero-actions {
@@ -209,6 +245,7 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      margin-bottom: 24px;
     }
 
     .info-chip {
@@ -216,23 +253,39 @@
       border: 1px solid var(--gray-200);
       border-radius: 999px;
       padding: 12px 16px;
-      font-size: 0.95rem;
+      font-size: 0.96rem;
       color: var(--gray-700);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .notice {
+      padding: 18px 18px;
+      border-left: 4px solid var(--green-600);
+      background: var(--white);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      box-shadow: var(--shadow-soft);
+      max-width: 720px;
+      color: var(--gray-700);
+    }
+
+    .hero-card,
+    .card,
+    .cta-box,
+    .highlight-box {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
     }
 
     .hero-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow);
+      padding: 30px;
     }
 
     .hero-card h3 {
-      color: var(--green-900);
-      margin-bottom: 14px;
-      font-size: 1.3rem;
+      color: var(--green-950);
+      font-size: 1.36rem;
+      margin-bottom: 18px;
     }
 
     .hero-card ul {
@@ -242,16 +295,24 @@
     }
 
     .hero-card li {
-      padding: 12px 14px;
       background: var(--green-050);
-      border-radius: var(--radius-sm);
       border-left: 4px solid var(--green-600);
+      border-radius: 12px;
+      padding: 14px 14px;
+      color: var(--gray-700);
     }
 
+    .grid-2,
     .cards-3,
-    .cards-4 {
+    .cards-4,
+    .cards-5 {
       display: grid;
-      gap: 22px;
+      gap: 24px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
     }
 
     .cards-3 {
@@ -262,75 +323,84 @@
       grid-template-columns: repeat(4, 1fr);
     }
 
+    .cards-5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
     .card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow);
+      padding: 28px;
+      height: 100%;
     }
 
     .card h3 {
-      color: var(--green-900);
+      color: var(--green-950);
+      font-size: 1.2rem;
       margin-bottom: 12px;
-      font-size: 1.18rem;
+      line-height: 1.3;
     }
 
-    .schedule-tabs {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
+    .card p,
+    .card li {
+      color: var(--gray-600);
     }
 
-    .tab-btn {
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--gray-200);
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .schedule-card {
       background: var(--white);
-      color: var(--green-800);
-      font-weight: 700;
-      cursor: pointer;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      box-shadow: var(--shadow);
     }
 
-    .tab-btn.active {
-      background: var(--green-800);
-      color: var(--white);
-      border-color: var(--green-800);
+    .schedule-card h3 {
+      color: var(--green-950);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
 
-    .schedule-day {
-      display: none;
-    }
-
-    .schedule-day.active {
-      display: block;
+    .schedule-date {
+      color: var(--green-700);
+      font-weight: 800;
+      margin-bottom: 22px;
     }
 
     .schedule-list {
       display: grid;
-      gap: 18px;
+      gap: 16px;
     }
 
     .schedule-item {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      box-shadow: var(--shadow);
       display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 18px;
+      grid-template-columns: 98px 1fr;
+      gap: 16px;
       align-items: start;
+      background: var(--green-050);
+      border: 1px solid var(--green-200);
+      border-radius: var(--radius-md);
+      padding: 16px;
     }
 
     .schedule-time {
-      font-weight: 800;
-      color: var(--green-800);
-      background: var(--green-050);
-      padding: 10px 12px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
       border-radius: 12px;
+      padding: 10px 8px;
       text-align: center;
+      color: var(--green-800);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .schedule-item h4 {
+      color: var(--green-950);
+      margin-bottom: 6px;
+      font-size: 1.04rem;
     }
 
     .speaker-card {
@@ -338,90 +408,122 @@
     }
 
     .speaker-photo {
-      width: 100px;
-      height: 100px;
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 18px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--green-700), var(--green-500));
-      margin: 0 auto 16px;
+      color: var(--white);
       display: grid;
       place-items: center;
-      color: var(--white);
-      font-size: 1.7rem;
+      font-size: 1.45rem;
       font-weight: 800;
+      box-shadow: var(--shadow-soft);
     }
 
     .speaker-role {
       color: var(--green-700);
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      font-size: 0.96rem;
     }
 
     .highlight-box {
+      padding: 34px;
       background: linear-gradient(135deg, var(--green-900), var(--green-700));
       color: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 34px;
-      box-shadow: var(--shadow);
+      border: none;
     }
 
     .highlight-box h3 {
-      font-size: 1.6rem;
-      margin-bottom: 12px;
+      font-size: 1.7rem;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .highlight-box p {
+      color: rgba(255,255,255,0.92);
     }
 
     .steps {
       display: grid;
       gap: 16px;
-      margin-top: 24px;
+      margin: 28px 0 0;
     }
 
     .step {
       display: grid;
-      grid-template-columns: 46px 1fr;
+      grid-template-columns: 52px 1fr;
       gap: 14px;
       align-items: start;
       background: rgba(255,255,255,0.08);
-      padding: 16px;
-      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 18px;
     }
 
     .step-number {
-      width: 46px;
-      height: 46px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: rgba(255,255,255,0.16);
       display: grid;
       place-items: center;
       font-weight: 800;
+      font-size: 1rem;
     }
 
-    .cta-box {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      box-shadow: var(--shadow);
-      text-align: center;
+    .step strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
     }
 
     .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .contact-item {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 15px 16px;
+      color: var(--gray-700);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-item a {
+      color: var(--green-800);
+      font-weight: 700;
+    }
+
+    .cta-box {
+      padding: 36px;
+      text-align: center;
+    }
+
+    .check-list {
+      list-style: none;
       display: grid;
       gap: 12px;
       margin-top: 18px;
     }
 
-    .contact-item {
+    .check-list li {
+      background: var(--green-050);
+      border: 1px solid var(--green-200);
+      border-radius: 14px;
       padding: 14px 16px;
-      border: 1px solid var(--gray-200);
-      border-radius: 12px;
-      background: var(--white);
     }
 
     footer {
-      padding: 28px 0 40px;
-      color: var(--gray-500);
+      padding: 34px 0 42px;
       border-top: 1px solid var(--gray-200);
-      margin-top: 20px;
+      margin-top: 12px;
+      background: #fcfefd;
     }
 
     .footer-content {
@@ -429,45 +531,61 @@
       justify-content: space-between;
       gap: 18px;
       flex-wrap: wrap;
+      color: var(--gray-500);
+      font-size: 0.96rem;
     }
 
-    .custom-note {
-      margin-top: 18px;
-      padding: 14px 16px;
-      border-left: 4px solid var(--green-600);
-      background: var(--green-050);
-      border-radius: 10px;
-      color: var(--gray-700);
+    @media (max-width: 1120px) {
+      .cards-5 {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     @media (max-width: 960px) {
       .hero-grid,
+      .grid-2,
       .cards-3,
-      .cards-4 {
+      .cards-4,
+      .cards-5,
+      .schedule-grid {
         grid-template-columns: 1fr;
       }
 
-      .schedule-item {
-        grid-template-columns: 1fr;
+      .nav {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        gap: 16px;
       }
     }
 
     @media (max-width: 720px) {
-      .nav {
-        flex-direction: column;
-        padding: 14px 0;
-      }
-
-      .nav-links {
-        justify-content: center;
+      .section {
+        padding: 74px 0;
       }
 
       .hero {
-        padding-top: 54px;
+        padding: 62px 0 46px;
       }
 
-      .section {
-        padding: 66px 0;
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+
+      .hero-card,
+      .card,
+      .schedule-card,
+      .highlight-box,
+      .cta-box {
+        padding: 22px;
+      }
+
+      .schedule-item {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -476,8 +594,11 @@
   <header>
     <div class="container nav">
       <a href="#inicio" class="brand">
-        <span class="brand-badge">MICROBIOMA</span>
-        <span>Grupo de Estudos e Pesquisa em Microbiologia e Biotecnologia Microbiana na Amazônia </span>
+        <span class="brand-badge">MIC</span>
+        <div class="brand-text">
+          <div class="brand-title">Grupo de Estudos e Pesquisa em Microbiologia e Biotecnologia Microbiana na Amazônia</div>
+          <div class="brand-subtitle">UFRA • MicroBioMa</div>
+        </div>
       </a>
 
       <nav class="nav-links">
@@ -496,10 +617,9 @@
       <div class="container hero-grid">
         <div>
           <span class="tag">Evento online • Ciclo de palestras</span>
-          <h1>Palestras sobre Biorremediação 2026</h1>
+          <h1>2º Ciclo de Palestras sobre Biorremediação 2026</h1>
           <p>
-            Um ciclo de palestras online voltado à discussão de fundamentos, aplicações e perspectivas da biorremediação,
-            reunindo estudantes, pesquisadores e profissionais em dois dias de programação científica.
+            O 2º Ciclo de Palestras sobre Biorremediação é uma iniciativa acadêmica promovida pelo Grupo de Estudos e Pesquisa em Microbiologia e Biotecnologia Microbiana na Amazônia, vinculado à Universidade Federal Rural da Amazônia. O evento ocorrerá de forma online, nos dias 13 e 14 de maio, reunindo palestrantes convidados para discutir fundamentos, aplicações e perspectivas da biorremediação em diferentes contextos ambientais.
           </p>
 
           <div class="hero-actions">
@@ -508,24 +628,25 @@
           </div>
 
           <div class="hero-info">
-            <div class="info-chip">📅 2 dias de evento</div>
+            <div class="info-chip">📅 13 e 14 de maio</div>
             <div class="info-chip">💻 Transmissão via Google Meet</div>
-            <div class="info-chip">🎓 Certificado previsto</div>
+            <div class="info-chip">📜 Certificados enviados por e-mail</div>
           </div>
 
-          <div class="custom-note">
-            <strong>Personalize depois:</strong> troque o nome do evento, ano, plataforma, datas, texto principal e botões.
+          <div class="notice">
+            O evento contará com carga horária e emissão de certificados para os participantes. Os links de acesso às palestras serão enviados por e-mail aos inscritos.
           </div>
         </div>
 
         <aside class="hero-card">
           <h3>Informações rápidas</h3>
           <ul>
-            <li><strong>Datas:</strong> 13 e 14 de Maio</li>
-            <li><strong>Horário:</strong> Faixa de horário </li>
+            <li><strong>Datas:</strong> 13 e 14 de maio</li>
             <li><strong>Formato:</strong> evento remoto com palestras ao vivo</li>
-            <li><strong>Plataforma:</strong> [Meet]</li>
-            <li><strong>Organização:</strong> [MicroBioMa]</li>
+            <li><strong>Plataforma:</strong> Google Meet</li>
+            <li><strong>Inscrições:</strong> via Google Forms</li>
+            <li><strong>Organização:</strong> Grupo de Estudos e Pesquisa em Microbiologia e Biotecnologia Microbiana na Amazônia</li>
+            <li><strong>Coordenação:</strong> Prof.ª Luciana Martins</li>
           </ul>
         </aside>
       </div>
@@ -533,31 +654,33 @@
 
     <section class="section" id="sobre">
       <div class="container">
-        <span class="tag">Sobre o evento</span>
-        <h2 class="section-title">Uma programação científica focada em biorremediação</h2>
-        <p class="section-subtitle">
-          Descrição institucional do evento, o público-alvo e sua relevância acadêmica.
-        </p>
+        <div class="section-header">
+          <span class="tag">Sobre o evento</span>
+          <h2 class="section-title">Um espaço de divulgação científica e formação acadêmica</h2>
+          <p class="section-subtitle">
+            O ciclo de palestras foi idealizado para ampliar o debate sobre a biorremediação e aproximar a comunidade acadêmica de temas estratégicos relacionados à microbiologia ambiental, biotecnologia e recuperação de áreas impactadas. A proposta é oferecer um espaço acessível de atualização científica, integração e troca de conhecimentos.
+          </p>
+        </div>
 
         <div class="cards-3">
           <article class="card">
             <h3>Objetivo</h3>
             <p>
-              Propósito do simpósio, como promover discussões sobre técnicas, aplicações e desafios da biorremediação em diferentes contextos ambientais.
+              Promover a discussão de conceitos, aplicações e possibilidades da biorremediação, destacando o papel de microrganismos, processos biotecnológicos e estratégias sustentáveis voltadas à recuperação ambiental.
             </p>
           </article>
 
           <article class="card">
             <h3>Público-alvo</h3>
             <p>
-              Descrever estudantes de graduação, pós-graduação, pesquisadores, extensionistas e interessados em microbiologia, biotecnologia e meio ambiente.
+              O evento é direcionado a estudantes de graduação, pós-graduação, professores, pesquisadores e demais interessados em biorremediação, microbiologia, biotecnologia, meio ambiente e áreas afins.
             </p>
           </article>
 
           <article class="card">
-            <h3>Temática central</h3>
+            <h3>Vinculação institucional</h3>
             <p>
-              Definição do eixo do evento: biorremediação de solos, águas, hidrocarbonetos, metais pesados, uso de microrganismos e inovação biotecnológica.
+              A realização é do Grupo de Estudos e Pesquisa em Microbiologia e Biotecnologia Microbiana na Amazônia, vinculado à UFRA — Universidade Federal Rural da Amazônia, sob administração da professora Luciana Martins.
             </p>
           </article>
         </div>
@@ -566,139 +689,132 @@
 
     <section class="section" id="programacao">
       <div class="container">
-        <span class="tag">Programação</span>
-        <h2 class="section-title">Ciclo de palestras distribuído em dois dias</h2>
-        <p class="section-subtitle">
-          A programação abaixo já está organizada por dia. Basta substituir os horários, títulos das palestras, nomes dos palestrantes e descrições.
-        </p>
-
-        <div class="schedule-tabs">
-          <button class="tab-btn active" data-day="dia1">Dia 1</button>
-          <button class="tab-btn" data-day="dia2">Dia 2</button>
-          <button class="tab-btn" data-day="dia3">Dia 3</button>
+        <div class="section-header">
+          <span class="tag">Programação</span>
+          <h2 class="section-title">Programação distribuída em dois dias de evento</h2>
+          <p class="section-subtitle">
+            Como os horários das palestras ainda serão definidos, a estrutura abaixo já organiza o evento por dia e por ordem de apresentação. Depois, basta substituir os campos de horário, título e nome de cada convidado.
+          </p>
         </div>
 
-        <div class="schedule-day active" id="dia1">
-          <div class="schedule-list">
-            <article class="schedule-item">
-              <div class="schedule-time">18h00</div>
-              <div>
-                <h3>Abertura do simpósio</h3>
-                <p>Boas-vindas da organização, apresentação do evento e orientações gerais sobre participação online.</p>
-              </div>
-            </article>
+        <div class="schedule-grid">
+          <article class="schedule-card">
+            <h3>Dia 1</h3>
+            <div class="schedule-date">13 de maio</div>
 
-            <article class="schedule-item">
-              <div class="schedule-time">18h30</div>
-              <div>
-                <h3>[Título da palestra 1]</h3>
-                <p><strong>Palestrante:</strong> [Nome do palestrante] • Tema. </p>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <div class="schedule-time">A definir</div>
+                <div>
+                  <h4>Abertura do evento</h4>
+                  <p>Recepção dos participantes, apresentação do ciclo de palestras e orientações iniciais sobre participação e certificação.</p>
+                </div>
               </div>
-            </article>
 
-            <article class="schedule-item">
-              <div class="schedule-time">19h30</div>
-              <div>
-                <h3>[Título da palestra 2]</h3>
-                <p><strong>Palestrante:</strong> [Nome do palestrante] • Tema.</p>
+              <div class="schedule-item">
+                <div class="schedule-time">A definir</div>
+                <div>
+                  <h4>Palestra 1</h4>
+                  <p><strong>Palestrante:</strong> a definir. Espaço reservado para a primeira palestra do evento.</p>
+                </div>
               </div>
-            </article>
-          </div>
-        </div>
 
-        <div class="schedule-day" id="dia2">
-          <div class="schedule-list">
-            <article class="schedule-item">
-              <div class="schedule-time">18h00</div>
-              <div>
-                <h3>[Título da palestra 3]</h3>
-                <p><strong>Palestrante:</strong> [Nome do palestrante] • Tema.</p>
+              <div class="schedule-item">
+                <div class="schedule-time">A definir</div>
+                <div>
+                  <h4>Palestra 2</h4>
+                  <p><strong>Palestrante:</strong> a definir. Espaço reservado para a segunda palestra do primeiro dia.</p>
+                </div>
               </div>
-            </article>
 
-            <article class="schedule-item">
-              <div class="schedule-time">19h00</div>
-              <div>
-                <h3>[Título da palestra 4]</h3>
-                <p><strong>Palestrante:</strong> [Nome do palestrante] • Tema.</p>
+              <div class="schedule-item">
+                <div class="schedule-time">A definir</div>
+                <div>
+                  <h4>Palestra 3</h4>
+                  <p><strong>Palestrante:</strong> a definir. Espaço reservado para a terceira apresentação do primeiro dia.</p>
+                </div>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <article class="schedule-item">
-              <div class="schedule-time">20h00</div>
-              <div>
-                <h3>Mesa de debate</h3>
-                <p>Espaço para perguntas, discussão com convidados e interação com os participantes.</p>
-              </div>
-            </article>
-          </div>
-        </div>
+          <article class="schedule-card">
+            <h3>Dia 2</h3>
+            <div class="schedule-date">14 de maio</div>
 
-        <div class="schedule-day" id="dia3">
-          <div class="schedule-list">
-            <article class="schedule-item">
-              <div class="schedule-time">18h00</div>
-              <div>
-                <h3>[Título da palestra 5]</h3>
-                <p><strong>Palestrante:</strong> [Nome do palestrante] • Tema.</p>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <div class="schedule-time">A definir</div>
+                <div>
+                  <h4>Palestra 4</h4>
+                  <p><strong>Palestrante:</strong> a definir. Espaço reservado para a primeira palestra do segundo dia.</p>
+                </div>
               </div>
-            </article>
 
-            <article class="schedule-item">
-              <div class="schedule-time">19h00</div>
-              <div>
-                <h3>[Título da palestra 6]</h3>
-                <p><strong>Palestrante:</strong> [Nome do palestrante] • Tema.</p>
+              <div class="schedule-item">
+                <div class="schedule-time">A definir</div>
+                <div>
+                  <h4>Palestra 5</h4>
+                  <p><strong>Palestrante:</strong> a definir. Espaço reservado para a segunda palestra do segundo dia.</p>
+                </div>
               </div>
-            </article>
 
-            <article class="schedule-item">
-              <div class="schedule-time">20h00</div>
-              <div>
-                <h3>Encerramento</h3>
-                <p>Considerações finais, agradecimentos e orientações sobre certificados, materiais e contato posterior.</p>
+              <div class="schedule-item">
+                <div class="schedule-time">A definir</div>
+                <div>
+                  <h4>Encerramento</h4>
+                  <p>Orientações finais, agradecimentos e informações sobre envio posterior dos certificados por e-mail.</p>
+                </div>
               </div>
-            </article>
-          </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="palestrantes">
       <div class="container">
-        <span class="tag">Palestrantes</span>
-        <h2 class="section-title">Espaço pronto para apresentar os convidados</h2>
-        <p class="section-subtitle">
-          Você pode trocar as iniciais por foto, inserir instituição, mini bio e tema da palestra. Se tiver mais convidados, basta duplicar os cartões.
-        </p>
+        <div class="section-header">
+          <span class="tag">Palestrantes</span>
+          <h2 class="section-title">Espaço reservado para os cinco convidados</h2>
+          <p class="section-subtitle">
+            Os cartões abaixo já estão preparados para cinco palestrantes. Você pode substituir as iniciais por fotos, inserir nomes completos, instituições e mini biografias.
+          </p>
+        </div>
 
-        <div class="cards-4">
+        <div class="cards-5">
           <article class="card speaker-card">
-            <div class="speaker-photo">AB</div>
-            <h3>Nome do palestrante 1</h3>
-            <p class="speaker-role">Instituição / Laboratório</p>
-            <p>Mini bio resumida com formação, área de atuação e vínculo acadêmico ou profissional.</p>
+            <div class="speaker-photo">P1</div>
+            <h3>Palestrante 1</h3>
+            <p class="speaker-role">Instituição / laboratório</p>
+            <p>Insira aqui uma breve apresentação do palestrante, destacando formação, área de pesquisa e vínculo institucional.</p>
           </article>
 
           <article class="card speaker-card">
-            <div class="speaker-photo">CD</div>
-            <h3>Nome do palestrante 2</h3>
-            <p class="speaker-role">Instituição / Laboratório</p>
-            <p>Mini bio resumida com experiência em microbiologia ambiental, biotecnologia ou recuperação de áreas impactadas.</p>
+            <div class="speaker-photo">P2</div>
+            <h3>Palestrante 2</h3>
+            <p class="speaker-role">Instituição / laboratório</p>
+            <p>Use este espaço para uma mini bio objetiva com atuação em microbiologia, biotecnologia ou recuperação ambiental.</p>
           </article>
 
           <article class="card speaker-card">
-            <div class="speaker-photo">EF</div>
-            <h3>Nome do palestrante 3</h3>
-            <p class="speaker-role">Instituição / Laboratório</p>
-            <p>Texto curto para destacar pesquisa, extensão, docência ou atuação técnica ligada ao tema do evento.</p>
+            <div class="speaker-photo">P3</div>
+            <h3>Palestrante 3</h3>
+            <p class="speaker-role">Instituição / laboratório</p>
+            <p>Você pode incluir aqui também o tema central da fala ou a linha de pesquisa do convidado.</p>
           </article>
 
           <article class="card speaker-card">
-            <div class="speaker-photo">GH</div>
-            <h3>Nome do palestrante 4</h3>
-            <p class="speaker-role">Instituição / Laboratório</p>
-            <p>Você pode incluir aqui também mediadores, debatedores ou membros da comissão organizadora.</p>
+            <div class="speaker-photo">P4</div>
+            <h3>Palestrante 4</h3>
+            <p class="speaker-role">Instituição / laboratório</p>
+            <p>Reserve este campo para apresentar experiência acadêmica, profissional e contribuição para o tema do evento.</p>
+          </article>
+
+          <article class="card speaker-card">
+            <div class="speaker-photo">P5</div>
+            <h3>Palestrante 5</h3>
+            <p class="speaker-role">Instituição / laboratório</p>
+            <p>Insira uma descrição curta e clara para manter o visual do site uniforme e organizado.</p>
           </article>
         </div>
       </div>
@@ -708,41 +824,40 @@
       <div class="container">
         <div class="highlight-box">
           <span class="tag" style="background: rgba(255,255,255,0.14); color: white;">Inscrições</span>
-          <h3>Área de chamada principal para inscrição</h3>
+          <h3>Inscreva-se para participar do ciclo de palestras</h3>
           <p>
-            Link do formulário de inscrição, regras de certificação, número de vagas,
-            gratuidade ou valor, além do prazo final para se inscrever.
+            As inscrições serão realizadas por formulário online. Após o preenchimento, os participantes receberão por e-mail as informações necessárias para acompanhar o evento, incluindo os links de acesso via Google Meet.
           </p>
 
           <div class="steps">
             <div class="step">
               <div class="step-number">1</div>
               <div>
-                <strong>Preencha o formulário</strong>
-                <p>link oficial do Google Forms, Even3, Sympla ou outro sistema de inscrição.</p>
+                <strong>Preencha o formulário de inscrição</strong>
+                <p>Substitua este espaço pelo link oficial do Google Forms: <em>[inserir link do formulário]</em>.</p>
               </div>
             </div>
 
             <div class="step">
               <div class="step-number">2</div>
               <div>
-                <strong>Receba a confirmação</strong>
-                <p>Explique como o participante saberá que a inscrição foi registrada e como receberá os links do evento.</p>
+                <strong>Aguarde a confirmação</strong>
+                <p>Os participantes inscritos poderão receber orientações e informações complementares por e-mail antes do início do evento.</p>
               </div>
             </div>
 
             <div class="step">
               <div class="step-number">3</div>
               <div>
-                <strong>Acesse o evento nos dias programados</strong>
-                <p>Você pode indicar que os links de Meet serão enviados por e-mail, grupo ou página específica.</p>
+                <strong>Receba os links do Google Meet</strong>
+                <p>Os links de acesso às palestras serão disponibilizados por e-mail, com antecedência, aos inscritos no formulário.</p>
               </div>
             </div>
           </div>
 
-          <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
-            <a class="btn btn-secondary" href="#">Inserir link de inscrição</a>
-            <a class="btn btn-secondary" href="#contato">Tirar dúvidas</a>
+          <div style="margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="btn btn-secondary" href="#">Inserir link do Forms</a>
+            <a class="btn btn-secondary" href="#contato">Entrar em contato</a>
           </div>
         </div>
       </div>
@@ -750,32 +865,31 @@
 
     <section class="section" id="acesso">
       <div class="container">
-        <span class="tag">Acesso ao evento</span>
-        <h2 class="section-title">Como participar das palestras online</h2>
-        <p class="section-subtitle">
-          Como o evento será remoto, esta seção serve para explicar claramente como os participantes entrarão nas salas de transmissão.
-        </p>
+        <div class="section-header">
+          <span class="tag">Acesso ao evento</span>
+          <h2 class="section-title">Informações sobre participação online</h2>
+          <p class="section-subtitle">
+            Esta seção reúne as orientações básicas para os participantes acompanharem as palestras de forma remota, com clareza sobre envio de links, certificados e comunicação oficial.
+          </p>
+        </div>
 
-        <div class="cards-3">
+        <div class="grid-2">
           <article class="card">
-            <h3>Plataforma</h3>
-            <p>
-              As palestras ocorrerão no Google Meet e haverá variação conforme o dia.
-            </p>
+            <h3>Como será o acesso</h3>
+            <ul class="check-list">
+              <li>As palestras ocorrerão integralmente em salas do Google Meet.</li>
+              <li>Os links de acesso serão enviados por e-mail aos inscritos.</li>
+              <li>Recomenda-se acompanhar a caixa de entrada e o spam próximo às datas do evento.</li>
+            </ul>
           </article>
 
           <article class="card">
-            <h3>Envio dos links</h3>
-            <p>
-              Links serão enviados por e-mail, WhatsApp, Instagram ou formulário de confirmação.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Orientações técnicas</h3>
-            <p>
-              Recomendações de conexão, horário de entrada, identificação com nome completo e regras para emissão de certificado.
-            </p>
+            <h3>Certificação e participação</h3>
+            <ul class="check-list">
+              <li>O evento contará com carga horária.</li>
+              <li>Os certificados serão enviados posteriormente por e-mail.</li>
+              <li>Mais detalhes sobre presença e validação podem ser acrescentados depois nesta seção.</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -785,21 +899,17 @@
       <div class="container">
         <div class="cta-box">
           <span class="tag">Contato e organização</span>
-          <h2 class="section-title">Fale com a comissão organizadora</h2>
-          <p class="section-subtitle" style="margin-left:auto; margin-right:auto;">
-            Canais oficiais (acrescentar Instragem do grupo)
+          <h2 class="section-title">Informações institucionais e canais oficiais</h2>
+          <p class="section-subtitle" style="max-width: 760px; margin: 0 auto;">
+            Em caso de dúvidas sobre inscrições, programação ou acesso às palestras, utilize os canais oficiais do grupo organizador.
           </p>
 
           <div class="contact-list">
-            <div class="contact-item"><strong>Grupo responsável:</strong> MicroBioMa </div>
-            <div class="contact-item"><strong>E-mail:</strong> [seuemail@exemplo.com]</div>
-            <div class="contact-item"><strong>Instagram:</strong> [@perfil_do_grupo]</div>
-            <div class="contact-item"><strong>Instituição:</strong> UFRA </div>
-          </div>
-
-          <div class="custom-note" style="text-align:left; margin-top:24px;">
-            <strong>Personalizações que você pode fazer depois:</strong> adicionar logos, inserir fotos reais dos palestrantes,
-            mudar a paleta de verde, incluir seção de apoiadores, certificados, perguntas frequentes e galeria pós-evento.
+            <div class="contact-item"><strong>Grupo responsável:</strong> Grupo de Estudos e Pesquisa em Microbiologia e Biotecnologia Microbiana na Amazônia</div>
+            <div class="contact-item"><strong>Administração:</strong> Prof.ª Luciana Martins</div>
+            <div class="contact-item"><strong>Instituição:</strong> UFRA — Universidade Federal Rural da Amazônia</div>
+            <div class="contact-item"><strong>Instagram:</strong> <a href="https://instagram.com/microbioma_ufra" target="_blank">@microbioma_ufra</a></div>
+            <div class="contact-item"><strong>E-mail de contato:</strong> [inserir e-mail oficial do evento ou do grupo]</div>
           </div>
         </div>
       </div>
@@ -808,26 +918,9 @@
 
   <footer>
     <div class="container footer-content">
-      <p><strong>Simpósio de Biorremediação</strong> • Site desenvolvido para GitHub Pages</p>
-      <p>© 2026 • Grupo de Estudos em Biorremediação</p>
+      <p><strong>2º Ciclo de Palestras sobre Biorremediação</strong> • MicroBioMa • UFRA</p>
+      <p>Site para GitHub Pages • personalize nomes, horários, links e palestrantes conforme necessário</p>
     </div>
   </footer>
-
-  <script>
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const days = document.querySelectorAll('.schedule-day');
-
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const target = button.dataset.day;
-
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        days.forEach(day => day.classList.remove('active'));
-
-        button.classList.add('active');
-        document.getElementById(target).classList.add('active');
-      });
-    });
-  </script>
 </body>
 </html>
